@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const ToDoApp = ({ navigation, addTask }) => {
@@ -15,6 +15,11 @@ const ToDoApp = ({ navigation, addTask }) => {
   };
 
   const handleAddTask = () => {
+    if (!taskDescription.trim() || !selectedDate) {
+      Alert.alert('Error', 'Please pick a date and enter a valid description.');
+      return;
+    }
+
     const newTask = {
       id: Date.now().toString(),  // Unique ID for each task
       date: selectedDate.toDateString(),
