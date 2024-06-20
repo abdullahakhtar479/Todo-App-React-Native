@@ -123,7 +123,8 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 16,
     color: '#333333',
-    height: 100, // Adjust height as needed
+    height: 100,
+    textAlignVertical: 'top'
   },
   submitButton: {
     backgroundColor: '#6200EE',
